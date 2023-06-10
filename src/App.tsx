@@ -1,8 +1,17 @@
-import { Component, For } from "solid-js";
-import { hashIntegration, Route, Router, Routes, Link } from "solid-app-router";
+import { Component, For, createSignal } from "solid-js";
+import {
+  hashIntegration,
+  Route,
+  Router,
+  Routes,
+  Link,
+  useLocation,
+  useNavigate,
+} from "solid-app-router";
 import RequestHandler from "./components/RequestHandler";
 import { restRequests } from "./store";
 import Hero from "./components/Hero";
+import RequestModal from "./components/RequestModal";
 
 const App: Component = () => {
   return (
