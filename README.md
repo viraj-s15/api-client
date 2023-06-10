@@ -10,7 +10,7 @@ An API viewing and testing project (currrently in development).
 2) Typescript
 3) Solid js
 #### Backend
-1) Prisa
+Non existent as of now but it should include prisma at some point
 
 More will be added as and when they are implemented in the codebase
 
