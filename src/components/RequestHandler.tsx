@@ -1,13 +1,6 @@
 import { Component, createSignal } from "solid-js";
-import {
-  hashIntegration,
-  Route,
-  Router,
-  Routes,
-  Link,
-  useLocation,
-  useNavigate,
-} from "solid-app-router";
+import { useLocation, useNavigate } from "solid-app-router";
+import Button from "./Button";
 import { restRequests } from "../store";
 import RequestModal from "./RequestModal";
 
@@ -19,12 +12,11 @@ const RequestHandler: Component = () => {
     <div class="text-black flex gap-32 border-blue-100 m-3 justify-center items-start text-center">
       <h1 class="font-medium text-xl py-2">Api Client</h1>
       <div>
-        <button
-          class="bg-blue-500 hover:bg-blue-600 text-white text-lg px-4 py-2 rounded-full"
+        <Button
           onClick={() => setShowModal(true)}
-        >
-          +
-        </button>
+          icon="add"
+          label="Add Request"
+        />
         <RequestModal
           show={showModal()}
           onModalHide={(id: string | null) => {

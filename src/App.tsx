@@ -8,6 +8,7 @@ import {
   useLocation,
   useNavigate,
 } from "solid-app-router";
+import Button from "./components/Button";
 import RequestHandler from "./components/RequestHandler";
 import { restRequests } from "./store";
 import Hero from "./components/Hero";
