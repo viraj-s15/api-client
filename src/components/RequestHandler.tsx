@@ -1,9 +1,19 @@
 import { Component, createSignal } from "solid-js";
+import { useLocation, useNavigate } from "solid-app-router";
 import Button from "./Button";
 import RequestModal from "./RequestModal";
 
 const RequestHandler: Component = () => {
   const [showModal, setShowModal] = createSignal(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const closeModal = (id: string | null) => {
+    setShowModal(false);
+    // Perform any necessary logic when closing the modal
+    console.log("Modal closed with ID:", id);
+  };
+
   return (
     <div class="text-black flex gap-32 border-blue-100 m-3 justify-center items-start text-center">
       <h1 class="font-medium text-xl py-2">Api Client</h1>
@@ -13,12 +23,9 @@ const RequestHandler: Component = () => {
           icon="add"
           label="Add Request"
         />
-        <RequestModal
-          show={showModal()}
-          onModalHide={(id: string | null) => {
-            setShowModal(true);
-          }}
-        />
+        {showModal() && (
+          <RequestModal show={showModal()} onModalHide={closeModal} />
+        )}
       </div>
     </div>
   );
