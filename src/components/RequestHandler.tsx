@@ -5,13 +5,9 @@ import RequestModal from "./RequestModal";
 
 const RequestHandler: Component = () => {
   const [showModal, setShowModal] = createSignal(false);
-  const navigate = useNavigate();
-  const location = useLocation();
 
   const closeModal = (id: string | null) => {
     setShowModal(false);
-    // Perform any necessary logic when closing the modal
-    console.log("Modal closed with ID:", id);
   };
 
   return (
