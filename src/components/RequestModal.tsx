@@ -6,9 +6,9 @@ import {
   onMount,
   onCleanup,
 } from "solid-js";
-import ClientForm from "../components/ClientForm";
+import { setRestRequests, restRequests } from "../store";
 import { IRestRequest } from "../interfaces/rest.interfaces";
-
+import { ClientForm } from "./ClientForm";
 interface RequestModalProps extends ComponentProps<any> {
   show: boolean;
   onModalHide: (id: string | null) => void;
@@ -46,6 +46,20 @@ const RequestModal: Component<RequestModalProps> = (
           <h5 class="text-4xl font-bold mb-4">
             {(props.request ? "Edit" : "Create") + " Request"}
           </h5>
+          <ClientForm
+            formSubmit={(request: IRestRequest) => {
+              const id = self.crypto?.randomUUID() || Date.now().toString();
+              setRestRequests([
+                ...(restRequests() || []),
+                {
+                  ...request,
+                  id,
+                },
+              ]);
+              props.onModalHide(id);
+            }}
+            actionBtnText={"Save"}
+          />
           <span class="absolute bottom-9 right-8">
             <path
               stroke-linecap="round"

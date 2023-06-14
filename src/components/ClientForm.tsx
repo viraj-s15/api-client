@@ -1,7 +1,7 @@
 import { Component } from "solid-js";
 import { IRestRequest } from "../interfaces/rest.interfaces";
 
-export const RestClientForm: Component<{
+export const ClientForm: Component<{
   request?: Partial<IRestRequest>;
   formSubmit: Function;
   formUpdate?: Function;
@@ -21,30 +21,30 @@ export const RestClientForm: Component<{
           <label for="name" class="mb-4 block">
             Name
           </label>
-          <input placeholder="name" />
+          <input placeholder="Name" class="rounded-md p-2" />
         </div>
         <div>
           <label for="url" class="mb-4 block">
             URL
           </label>
-          <input placeholder="url" />
+          <input placeholder="url" class="rounded-md p-2" />
         </div>
 
         <div>
           <label class="my-4 block">Method</label>
-          <input placeholder="method" />
+          <input placeholder="method" class="rounded-md p-2" />
         </div>
       </div>
       <div>
         <label class="my-4 block">Body</label>
-        <input placeholder="body" />
+        <input placeholder="body" class="rounded-md p-2" />
       </div>
 
       <div class="mt-4">
         <button
           disabled={false}
           type="submit"
-          class="inline-flex items-center disabled:bg-gray-500 justify-center w-full px-5 py-3 text-white bg-purple-600 hover:bg-purple-700 rounded-lg sm:w-auto"
+          class="inline-flex items-center disabled:bg-gray-500 justify-center w-full px-5 py-3 text-white bg-blue-600 hover:bg-purple-700 rounded-lg sm:w-auto"
         >
           <span class="font-medium"> {props.actionBtnText} </span>
           <svg
