@@ -6,6 +6,7 @@ import {
   onMount,
   onCleanup,
 } from "solid-js";
+import ClientForm from "../components/ClientForm";
 import { IRestRequest } from "../interfaces/rest.interfaces";
 
 interface RequestModalProps extends ComponentProps<any> {
